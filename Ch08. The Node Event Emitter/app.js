@@ -29,3 +29,4 @@ people.forEach(function (person) {
 });
 
 james.emit('speak', 'hey dudes');
+ryu.emit('speak', 'I want a curry');
