@@ -3,5 +3,11 @@
     "start": "node server.js"
   },
   "name": "",
-  "version": ""
+  "version": "",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  }
 }

@@ -1,3 +1,8 @@
+var http = require('http');
+var url = require('url');
+var path = require('path');
+var fs = require('fs');
+
 // Array of Mime Types
 var mimeTypes = {
     "html": 'text/html',
@@ -9,7 +14,7 @@ var mimeTypes = {
 };
 
 // Create Server
-http.createServer(function () {
+http.createServer(function (req, res) {
     var uri = url.parse(req.url).pathname;
     var fileName = path.join(process.cwd(), unescape(uri));
     console.log('Loading ' + uri);
@@ -18,7 +23,7 @@ http.createServer(function () {
     try{
         stats = fs.lstatSync(fileName);
     }
-    catch{
+    catch(err){
         res.writeHead(404, {'Content-Type': 'text/plain'});
         res.write('404 Not Found\n');
         res.end();
